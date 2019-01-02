@@ -8,10 +8,14 @@ namespace MyTree.Shared.Services
 {
     public class NewsApiTopHeadlinesResult
     {
-        public string status { get; set; }
-        public int totalResults { get; set; }
-        public List<object> articles { get; set; } = new List<object>();
+        public string Status { get; set; }
+        public int TotalResults { get; set; }
+        public List<NewsApiArticle> Articles { get; set; } = new List<NewsApiArticle>();
+    }
 
+    public class NewsApiArticle
+    {
+        public string Title { get; set; }
     }
 
     public class NewsService
@@ -29,14 +33,7 @@ namespace MyTree.Shared.Services
         {
             string uri = $"https://newsapi.org/v2/top-headlines?country=us&apiKey={apiKey}";
             Console.WriteLine("getting");
-
             NewsApiTopHeadlinesResult result = await _http.GetJsonAsync<NewsApiTopHeadlinesResult>(uri);
-
-            // var getTask = _http.GetStringAsync(uri);
-            // Console.WriteLine("task started");
-
-            // string result = await getTask;
-            Console.WriteLine("got " + result);
             return result;
         }
     }
