@@ -28,11 +28,9 @@ namespace MyTree.Shared.Services
         }
         private HttpClient _http;
 
-
         public async Task<NewsApiTopHeadlinesResult> GetHeadlines()
         {
             string uri = $"https://newsapi.org/v2/top-headlines?country=us&apiKey={apiKey}";
-            Console.WriteLine("getting");
             NewsApiTopHeadlinesResult result = await _http.GetJsonAsync<NewsApiTopHeadlinesResult>(uri);
             return result;
         }
