@@ -5,7 +5,7 @@ A new way to read the Web...in O(log n)
 ## How to run
 
 - Install .NET Core 2.2 SDK and Visual Studio Code
-- Run `dotnet watch run` in MyTree\.  This will 
+- Run `dotnet watch run` in MyTree\.  This will recompile each time any file changes, and then you can reload the page.
 
 ## Steps that I got done
 

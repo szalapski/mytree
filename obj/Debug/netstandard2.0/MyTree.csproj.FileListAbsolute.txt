@@ -76,3 +76,5 @@ C:\s\MyTree\obj\Debug\netstandard2.0\blazor\linker\System.Net.Http.dll
 C:\s\MyTree\obj\Debug\netstandard2.0\blazor\linker\MyTree.pdb
 C:\s\MyTree\obj\Debug\netstandard2.0\blazor\inputs.bootjson.cache
 C:\s\MyTree\obj\Debug\netstandard2.0\blazor\blazor.boot.json
+C:\s\MyTree\obj\Debug\netstandard2.0\Pages\Todo.g.i.cs
+C:\s\MyTree\obj\Debug\netstandard2.0\Pages\Todo.g.cs
