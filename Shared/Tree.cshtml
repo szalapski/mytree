@@ -1,14 +1,36 @@
 @page "/tree"
+@inject HttpClient Http
 
 <div>
 Tree sandbox
 </div>
 
-News:
-@content
+<div>
+<h3>News:</h3>
+<div>@ResultsCount items</div>
+<div>retrieved: @Status</div>
+<div>@Content</div>
+</div>
+
+<button onclick="@(async () => await GetHeadlines())">Load it</button>
+
+
 
 @functions {
-    string content = "my news";
+    private MyTree.Shared.Services.NewsService NewsService1 => 
+        new MyTree.Shared.Services.NewsService(Http);
+    
+    // view model
+    public object Content {get; set;} = "not loaded yet";
+    public int ResultsCount {get; set;}
+    public string Status {get; set;}
 
+    public async Task GetHeadlines()
+    {
+        var headlines = await NewsService1.GetHeadlines();
+        Content = headlines;
+        ResultsCount = headlines.totalResults;
+        Status = headlines.status;
+    }
 }
 
