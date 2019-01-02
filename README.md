@@ -14,3 +14,7 @@ A new way to read the Web...in O(log n)
 - Install Blazor templates with `dotnet new -i Microsoft.AspNetCore.Blazor.Templates`
 - Create Blazor app with `dotnet new blazor -o MyTree`
 - Edit .csproj file to include line `<Watch Include="**\*.cshtml"/>` in `<ItemGroup>`
+
+## misc notes
+
+Newsapi.org key aa789746b4904675801a0e6175b7acf3

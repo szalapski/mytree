@@ -78,3 +78,5 @@ C:\s\MyTree\obj\Debug\netstandard2.0\Client\Pages\FetchData.g.cs
 C:\s\MyTree\obj\Debug\netstandard2.0\Client\Pages\Index.g.cs
 C:\s\MyTree\obj\Debug\netstandard2.0\Client\Pages\Todo.g.cs
 C:\s\MyTree\obj\Debug\netstandard2.0\Client\Pages\_ViewImports.g.cs
+C:\s\MyTree\obj\Debug\netstandard2.0\Shared\Tree.g.i.cs
+C:\s\MyTree\obj\Debug\netstandard2.0\Shared\Tree.g.cs
