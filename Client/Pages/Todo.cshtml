@@ -1,3 +1,5 @@
+@* using MyTree.Shared; *@
+
 @page "/todo"
 
 <h1>Todo</h1>
@@ -15,6 +17,7 @@
 <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
 
 @functions {
+    
     IList<TodoItem> todos = new List<TodoItem>();
     string newTodo;
 

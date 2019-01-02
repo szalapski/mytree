@@ -1,5 +1,7 @@
-public class TodoItem
-{
-    public string Title { get; set; }
-    public bool IsDone { get; set; }
+namespace MyTree.Shared {
+    public class TodoItem
+    {
+        public string Title { get; set; }
+        public bool IsDone { get; set; }
+    }
 }
