@@ -13,7 +13,12 @@ Tree sandbox
     <ul>
     
     @if (Content != null){
-         foreach (var article in Content.Articles){
+
+        foreach (var sc in ContentTree.SourceCounts){
+            <li>@sc.Key - @sc.Value</li>
+        }
+
+        foreach (var article in Content.Articles){
             <li>@article.Title</li>
         }
     }
@@ -28,11 +33,13 @@ Tree sandbox
     
     // view model
     public NewsApiTopHeadlinesResult Content {get; set;} 
+    public Tree ContentTree {get; set;} 
 
     private async Task GetHeadlines()
     {
-        var headlines = await NewsService1.GetHeadlines();
+        NewsApiTopHeadlinesResult headlines = await NewsService1.GetHeadlines();
         Content = headlines;
+        ContentTree = MyTree.Shared.Services.Tree.From(headlines);
     }
 
     protected override async Task OnInitAsync()

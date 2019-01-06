@@ -12,6 +12,30 @@ namespace MyTree.Shared.Services
         public bool IsNode => Items.Count > 1;
         public bool IsTwig => IsNode && Trees.Count <= 1;
         public ContentItem Leaf => IsLeaf ? Items.Single() : null;
+        public List<KeyValuePair<string, int>> SourceCounts { get; set; } =
+            new List<KeyValuePair<string, int>>();
+
+        public static Tree From(NewsApiTopHeadlinesResult headlines)
+        {
+            var items = headlines.Articles
+                    .Select((NewsApiArticle x) => ContentItem.From(x))
+                    .ToList();
+            var result = new Tree()
+            {
+                Items = items
+            };
+
+            result.SourceCounts = items
+                .GroupBy(
+                    x => x.ContentSource.Name,
+                    (key, g) => new KeyValuePair<string, int>(key, g.Count())
+                )
+                .OrderByDescending(kvp => kvp.Value)
+                .ToList();
+
+            return result;
+        }
+
 
     }
 
@@ -22,7 +46,20 @@ namespace MyTree.Shared.Services
         public string Content { get; set; }
         public Source FeedSource { get; set; }
         public Source ContentSource { get; set; }
+
+        public static ContentItem From(NewsApiArticle article)
+        {
+            return new ContentItem()
+            {
+                Title = article.Title,
+                Url = article.Url,
+                Content = article.Content,
+                ContentSource = new Source { Id = article.ContentSource.Id, Name = article.ContentSource.Name },
+                FeedSource = new Source { Name = "newsapi.org" }
+            };
+        }
     }
+
 
     public class Source
     {
